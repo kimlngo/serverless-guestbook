@@ -1,13 +1,14 @@
 /**
  * Web application
  */
-const apiUrl = 'https://CHANGEME.us-south.apigw.appdomain.cloud/guestbook';
+const apiUrl = 'https://228d22c2.us-east.apigw.appdomain.cloud/guestbook';
 const guestbook = {
   // retrieve the existing guestbook entries
   get() {
     return $.ajax({
       type: 'GET',
       url: `${apiUrl}/entries`,
+	  headers: {  'Access-Control-Allow-Origin': '*' },
       dataType: 'json'
     });
   },
@@ -17,6 +18,7 @@ const guestbook = {
     return $.ajax({
       type: 'PUT',
       url: `${apiUrl}/entries`,
+	  headers: {  'Access-Control-Allow-Origin': '*' },
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify({
         name,
